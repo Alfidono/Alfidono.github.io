@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Saidul Alfi | Portofolio</title>
+<style>
+:root {
+  --bg: #f4f8fd;
+  --surface: #ffffff;
+  --text: #0f1f38;
+  --muted: #5a6b86;
+  --accent: #1d5fd1;
+  --accent-dark: #0b3a8c;
+  --border: #d9e3f2;
+  --hero-from: #0b3a8c;
+  --hero-to: #1d6fe0;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a1424;
+    --surface: #111f36;
+    --text: #eaf1fc;
+    --muted: #94a7c4;
+    --accent: #5b9bff;
+    --accent-dark: #3a7be8;
+    --border: #1f3252;
+    --hero-from: #0a2a63;
+    --hero-to: #1750b0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0a1424; --surface: #111f36; --text: #eaf1fc; --muted: #94a7c4;
+  --accent: #5b9bff; --accent-dark: #3a7be8; --border: #1f3252;
+  --hero-from: #0a2a63; --hero-to: #1750b0; color-scheme: dark;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.container { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+nav {
+  position: sticky;
+  top: 0;
+  padding-top: env(safe-area-inset-top, 0px);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+nav .container { display: flex; justify-content: space-between; align-items: center; height: 58px; }
+.brand { font-weight: 800; color: var(--accent-dark); letter-spacing: .2px; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .brand { color: var(--accent); } }
+nav ul { display: flex; gap: 22px; list-style: none; }
+nav ul a { color: var(--muted); font-size: .95rem; font-weight: 500; }
+nav ul a:hover { color: var(--accent); text-decoration: none; }
+
+.hero {
+  background: linear-gradient(135deg, var(--hero-from), var(--hero-to));
+  color: #fff;
+  padding: 88px 0 80px;
+}
+.badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.3);
+  font-size: .85rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.hero h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); line-height: 1.15; }
+.hero p { margin-top: 18px; max-width: 600px; color: rgba(255,255,255,.88); font-size: 1.08rem; }
+.btn {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 12px 26px;
+  border-radius: 8px;
+  background: #fff;
+  color: #0b3a8c;
+  font-weight: 700;
+}
+.btn:hover { text-decoration: none; opacity: .92; }
+
+section { padding: 64px 0; }
+h2 { font-size: 1.6rem; margin-bottom: 8px; color: var(--accent-dark); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) h2 { color: var(--accent); } }
+.sub { color: var(--muted); margin-bottom: 28px; }
+.rule { width: 48px; height: 4px; border-radius: 2px; background: var(--accent); margin-bottom: 20px; }
+
+.about-grid { display: grid; gap: 20px; grid-template-columns: 2fr 1fr; align-items: start; }
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+}
+.facts { list-style: none; }
+.facts li { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: .95rem; }
+.facts li:last-child { border-bottom: none; }
+.facts span { display: block; color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .5px; }
+
+.grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: 14px;
+  padding: 26px;
+}
+.card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+.card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: .95rem; }
+
+.contact { text-align: center; }
+.contact .panel { max-width: 520px; margin: 0 auto; }
+.contact .mail { display: inline-block; margin-top: 8px; font-size: 1.1rem; font-weight: 700; word-break: break-all; }
+
+footer { padding: 28px 0; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: .9rem; }
+
+@media (max-width: 700px) {
+  .about-grid { grid-template-columns: 1fr; }
+  nav ul { gap: 14px; }
+  nav ul a { font-size: .88rem; }
+  .hero { padding: 64px 0 56px; }
+  section { padding: 48px 0; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <span class="brand">Saidul Alfi</span>
+    <ul>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#keahlian">Keahlian</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <span class="badge">Intern &middot; Teknik Komputer dan Jaringan</span>
+    <h1>Saidul Alfi</h1>
+    <p>Siswa kelas 12 SMK jurusan Teknik Komputer dan Jaringan yang berfokus pada jaringan WiFi FTTH, radio jaringan, dan CCTV.</p>
+    <a class="btn" href="#kontak">Hubungi Saya</a>
+  </div>
+</header>
+
+<section id="tentang">
+  <div class="container">
+    <div class="rule"></div>
+    <h2>Tentang Saya</h2>
+    <p class="sub">Mengenal saya lebih dekat</p>
+    <div class="about-grid">
+      <div class="panel">
+        <p>Saya adalah siswa kelas 12 SMK jurusan Teknik Komputer dan Jaringan (TKJ) yang bersekolah di SMK Negeri 1 Siak Kecil.</p>
+        <p>Saat ini saya berperan sebagai intern dan terus belajar langsung di bidang infrastruktur jaringan, mulai dari instalasi hingga pemeliharaan perangkat.</p>
+      </div>
+      <div class="panel">
+        <ul class="facts">
+          <li><span>Peran</span>Intern</li>
+          <li><span>Pendidikan</span>SMK Negeri 1 Siak Kecil</li>
+          <li><span>Jurusan</span>Teknik Komputer dan Jaringan</li>
+          <li><span>Kelas</span>12</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="keahlian" style="background: var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="rule"></div>
+    <h2>Keahlian</h2>
+    <p class="sub">Bidang yang saya pelajari dan tekuni</p>
+    <div class="grid">
+      <article class="card">
+        <div class="icon">🌐</div>
+        <h3>WiFi FTTH</h3>
+        <p>Jaringan internet fiber optik hingga ke rumah (Fiber to the Home) dan pengaturan WiFi untuk pengguna.</p>
+      </article>
+      <article class="card">
+        <div class="icon">📡</div>
+        <h3>Radio Jaringan</h3>
+        <p>Jaringan nirkabel berbasis radio untuk menghubungkan lokasi yang berjauhan.</p>
+      </article>
+      <article class="card">
+        <div class="icon">📹</div>
+        <h3>CCTV</h3>
+        <p>Pemasangan dan pengaturan kamera pengawas untuk keamanan dan pemantauan.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="kontak" class="contact">
+  <div class="container">
+    <div class="rule" style="margin-left:auto;margin-right:auto;"></div>
+    <h2>Kontak</h2>
+    <p class="sub">Tertarik berdiskusi atau bekerja sama? Silakan kirim email.</p>
+    <div class="panel">
+      <p class="muted" style="color:var(--muted);">Email</p>
+      <a class="mail" href="mailto:saidulalfi08@gmail.com">saidulalfi08@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">&copy; 2026 Saidul Alfi</div>
+</footer>
+
+</body>
+</html>
